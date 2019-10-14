@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package protos;
+
+service UserSrv {
+    rpc GetUser (UserReq) returns (UserRes) {}
+    rpc CreateUser (CreateUserReq) returns (UserRes) {}
+}
+
+message UserReq {
+    uint32 id = 1;
+}
+
+message CreateUserReq {
+    string fullName = 1;
+    string email = 2;
+    string password = 3;
+    string username = 4;
+}
+
+message UserRes {
+    uint32 id = 1;
+    string fullName = 2;
+    string email = 3;
+    string username = 4;
+}
