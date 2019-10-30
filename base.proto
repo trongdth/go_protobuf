@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package protobuf;
+
+// Message represents what is the purpose of object
+// 
+enum Message {
+
+    // Metadata of STORE action for wallet and user object
+    STORE_CACHE = 0; 
+    STORE_CACHE_DB = 1;
+    STORE_DB = 2;
+
+    // Metadata of QUERY action for user object
+    QUERY_USER_ID = 20;
+    QUERY_USER_EMAIL = 21;
+
+}
+
+// Object represents table/struct
+// 
+// [USER]
+enum Object {
+    USER = 0;
+}
+
+// Action represents:
+// 
+// STORE, QUERY
+enum Action {
+    STORE = 0;
+    QUERY = 1;
+}
+
+
+message BaseReq {
+    Action action = 1;
+    Object objectType = 2; 
+    Message message = 3;
+}

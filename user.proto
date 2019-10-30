@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package protobuf;
+
+import "base.proto";
+
+service UserSrv {
+    rpc CreateUser (UserReq) returns (UserRes) {}
+    rpc ReadUser (UserReq) returns (UserRes) {}
+}
+
+// UserReq represents an user query
+message UserReq {
+    BaseReq req = 1;
+    UserInfo user = 2;
+}
+
+// UserInfo
+message UserInfo {
+    uint32 id = 1;
+    string fullName = 2;
+    string email = 3;
+    string password = 4;
+}
+
+// UserRes : result + user info
+message UserRes {
+    bool result = 1;
+    UserInfo user = 2;
+}
